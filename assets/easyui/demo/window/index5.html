@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Full Layout - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+</head>
+<body class="easyui-layout">
+	<div data-options="region:'north',border:false" style="height:50px;background:#00008B;padding:1px 1px 1px 10px">
+		<p style="font-size:14px; color:white;">Selamat Datang : ADMIN</p>			
+	</div>	
+		
+	<div data-options="region:'west',split:true,title:'Menu'" style="width:250px;padding:5px;">
+		<ul class="easyui-tree" data-options="url:'tree_data1.json',method:'get',animate:true,dnd:true"></ul>	
+	</div>	
+	
+	<div region="center" border="false" border="false">
+        <div class="easyui-tabs" fit="true">
+            <div title="Input" style="padding:10px;">
+				<div class="easyui-panel" title="Koreksi Tarif Index Meter Dan Reset No Meter" style="width:865px">		
+	            	<!--<div style="padding:15px 30px 20px 30px"> !-->
+	            	<div style="padding:10px 15px 15px 15px">
+	                <form id="ff" method="post">	    	
+	                	<table cellpadding="3">			
+	                		<tr>
+	                			<td>No Agenda</td>
+	                			<td><input class="easyui-textbox" type="text" name="name" data-options="required:false" style="width:160px;height:26px;"></input></td>
+	            				<td>&nbsp;&nbsp;</td>
+	            				<td>Jenis Transaksi</td>
+	                			<td> 
+	            					<select class="easyui-combobox" name="language" style="width: 160px; height: 26px;" data-options="panelHeight:'auto'">
+	            						<option value="1">Token Susulan </option>
+	            						<option value="2">Perubahan Tarif Index </option>	
+	            						<option value="3">Masih Belum Jelas </option>		
+	            						<option value="4">Reset No Meter </option>												
+	            					</select>				
+	            				</td>					
+	                		</tr>
+	            			<tr>
+	                			<td>Id Pelanggan</td>
+	                			<td><input class="easyui-textbox" type="text" name="name" data-options="required:false" style="width:160px;height:26px;"></input></td>
+	            				<td>&nbsp;&nbsp;</td>
+	            				<td>Nama</td>
+	                			<td><input class="easyui-textbox" type="text" name="name" data-options="required:false" style="width:160px;height:26px;"></input></td>					
+	                		</tr>
+	            			<tr>
+	                			<td>Tarif</td>
+	                			<td><input class="easyui-textbox" type="text" name="name" data-options="required:false" style="width:160px;height:26px;"></input></td>
+	            				<td>&nbsp;&nbsp;</td>
+	            				<td>Daya</td>
+	                			<td><input class="easyui-textbox" type="text" name="name" data-options="required:false" style="width:160px;height:26px;"></input></td>					
+	                		</tr>
+	            			<tr>
+	                			<td>No Meter</td>
+	                			<td><input class="easyui-textbox" type="text" name="name" data-options="required:false" style="width:160px;height:26px;"></input></td>
+	            				<td>&nbsp;&nbsp;</td>
+	            				<td>Tarif Index</td>
+	                			<td><input class="easyui-textbox" type="text" name="name" data-options="required:false" style="width:160px;height:26px;"></input></td>					
+	                		</tr>	
+	            			
+	            			<tr><td colspan="5"><hr></td></tr>				
+	            
+	                		<tr>
+                    			<td colspan="2" align="center">
+	            					<table id="dg" title="Data Token Lama" style="width:400px;height:250px" data-options="
+	                                			rownumbers:true,
+	                                			singleSelect:true,
+	                                			autoRowHeight:false,
+	                                			pagination:true,
+	                                			pageSize:10">
+	                                	<thead>
+	                                		<tr>	                    												
+	            								<th field="inv" width="80" align="center">No Agenda</th>
+	            							    <th field="date" width="85" align="center">Tgl Entri</th>
+	            							    <th field="name" width="80" align="center">Status</th>
+	            							    <th field="note" width="110" align="center">Entri By</th>																		
+	                                		</tr>
+	                                	</thead>
+	                                </table>						
+	            					
+	            				</td>
+	            				<td>&nbsp;</td>					
+	                			<td colspan="2" align="center">
+	            					<table id="dg2" title="Data Token Baru" style="width:400px;height:250px" data-options="
+	                                			rownumbers:true,
+	                                			singleSelect:true,
+	                                			autoRowHeight:false,
+	                                			pagination:true,
+	                                			pageSize:10">
+	                                	<thead>
+	                                		<tr>	                    												
+	            								<th field="inv" width="80" align="center">No Agenda</th>
+	            							    <th field="date" width="85" align="center">Tgl Entri</th>
+	            							    <th field="name" width="80" align="center">Status</th>
+	            							    <th field="note" width="110" align="center">Entri By</th>																		
+	                                		</tr>
+	                                	</thead>
+	                                </table>	
+	            				</td>										
+	                		</tr>
+	            			
+	            			<tr><td colspan="5"><hr></td></tr>
+	            			
+	            			<tr>
+	                			<td>Tarif Index</td>
+	                			<td colspan="2">
+	            					<select class="easyui-combobox" name="language" style="width: 160px; height: 26px;" data-options="panelHeight:'auto'">
+	            						<option value="1">Tarif Index 1 </option>
+	            						<option value="2">Tarif Index 2 </option>	
+	            						<option value="3">Tarif Index 3 </option>		
+	            						<option value="4">Tarif Index 4 </option>												
+	            					</select>
+	            				</td>		
+								<td>&nbsp;</td>									
+								<td>
+									<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px; float:right;">Simpan</a> 
+								</td>								
+	                		</tr>
+	            			
+	                	</table>			
+	            
+	                </form>
+                		       
+	                </div>
+	            </div>							
+            </div>
+			
+            <div title="Monitoring" style="padding:10px;">
+                <div class="easyui-panel" title="Monitoring" style="width:865px">		
+	            	<!--<div style="padding:15px 30px 20px 30px"> !-->
+	            	<div style="padding:10px 15px 15px 15px">
+	                <form id="ff" method="post">	    	
+	                	<table cellpadding="3">	
+							<tr>
+	                			<td>Filter Berdasarkan</td>								
+	                			<td>
+									<input type="radio" name="name" value="1" checked> No Agenda</input>&nbsp;
+									<input type="radio" name="name" value="2"> Tanggal</input>
+								</td>
+	            				<td>&nbsp;&nbsp;</td>
+	            				<td>&nbsp;&nbsp;</</td>
+	                			<td>&nbsp;&nbsp;</td>					
+	                		</tr>
+							
+							<tr><td colspan="5"><hr></td></tr>	
+						
+	                		<tr>
+	                			<td>No Agenda</td>
+	                			<td><input class="easyui-textbox" type="text" name="name" data-options="required:false" style="width:160px;height:26px;"></input></td>
+	            				<td>&nbsp;&nbsp;</td>
+	            				<td>No Meter</td>
+	                			<td><input class="easyui-textbox" type="text" name="name" data-options="required:false" style="width:160px;height:26px;"></input></td>					
+	                		</tr>
+	            			<tr>
+	                			<td>Tanggal Entri</td>
+	                			<td><input class="easyui-datebox" type="text" name="name" data-options="required:false" style="width:160px;height:26px;"></input></td>
+	            				<td>&nbsp;&nbsp;</td>
+	            				<td>Sampai</td>
+	                			<td>
+									<input class="easyui-datebox" type="text" name="name" data-options="required:false" style="width:160px;height:26px;"></input>									
+									<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px; float:right;">Proses</a> 														
+								</td>					
+	                		</tr>	            	            
+	            			
+	            			<tr><td colspan="5"><hr></td></tr>				
+	            
+	                		<tr>
+                    			<td colspan="2" align="center">
+	            					<table id="dg3" title="Sudah Aktivasi" style="width:400px;height:250px" data-options="
+	                                			rownumbers:true,
+	                                			singleSelect:true,
+	                                			autoRowHeight:false,
+	                                			pagination:true,
+	                                			pageSize:10">
+	                                	<thead>
+	                                		<tr>	                    												
+	            								<th field="inv" width="80" align="center">No Agenda</th>
+	            							    <th field="date" width="85" align="center">Tgl Entri</th>
+	            							    <th field="name" width="80" align="center">Status</th>
+	            							    <th field="note" width="110" align="center">Entri By</th>																		
+	                                		</tr>
+	                                	</thead>
+	                                </table>						
+	            					
+	            				</td>
+	            				<td>&nbsp;</td>					
+	                			<td colspan="2" align="center">
+	            					<table id="dg4" title="Belum Aktivasi" style="width:400px;height:250px" data-options="
+	                                			rownumbers:true,
+	                                			singleSelect:true,
+	                                			autoRowHeight:false,
+	                                			pagination:true,
+	                                			pageSize:10">
+	                                	<thead>
+	                                		<tr>	                    												
+	            								<th field="inv" width="80" align="center">No Agenda</th>
+	            							    <th field="date" width="85" align="center">Tgl Entri</th>
+	            							    <th field="name" width="80" align="center">Status</th>
+	            							    <th field="note" width="110" align="center">Entri By</th>																		
+	                                		</tr>
+	                                	</thead>
+	                                </table>	
+	            				</td>										
+	                		</tr>
+	            			
+	            			<tr><td colspan="5"><hr></td></tr>	            			
+	            			
+	                	</table>			
+	            
+	                </form>
+
+	                </div>
+	            </div>
+            </div>
+        </div>
+    </div>
+	
+	<script>
+		function submitForm(){
+			$('#ff').form('submit');
+		}
+		function clearForm(){
+			$('#ff').form('clear');
+		}
+	</script>
+	
+	<script>
+		(function($){
+			function pagerFilter(data){
+				if ($.isArray(data)){	// is array
+					data = {
+						total: data.length,
+						rows: data
+					}
+				}
+				var dg = $(this);
+				var state = dg.data('datagrid');
+				var opts = dg.datagrid('options');
+				if (!state.allRows){
+					state.allRows = (data.rows);
+				}
+				var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+				var end = start + parseInt(opts.pageSize);
+				data.rows = $.extend(true,[],state.allRows.slice(start, end));
+				return data;
+			}
+
+			var loadDataMethod = $.fn.datagrid.methods.loadData;
+			$.extend($.fn.datagrid.methods, {
+				clientPaging: function(jq){
+					return jq.each(function(){
+						var dg = $(this);
+                        var state = dg.data('datagrid');
+                        var opts = state.options;
+                        opts.loadFilter = pagerFilter;
+                        var onBeforeLoad = opts.onBeforeLoad;
+                        opts.onBeforeLoad = function(param){
+                            state.allRows = null;
+                            return onBeforeLoad.call(this, param);
+                        }
+						dg.datagrid('getPager').pagination({
+							onSelectPage:function(pageNum, pageSize){
+								opts.pageNumber = pageNum;
+								opts.pageSize = pageSize;
+								$(this).pagination('refresh',{
+									pageNumber:pageNum,
+									pageSize:pageSize
+								});
+								dg.datagrid('loadData',state.allRows);
+							}
+						});
+                        $(this).datagrid('loadData', state.data);
+                        if (opts.url){
+                        	$(this).datagrid('reload');
+                        }
+					});
+				},
+                loadData: function(jq, data){
+                    jq.each(function(){
+                        $(this).data('datagrid').allRows = null;
+                    });
+                    return loadDataMethod.call($.fn.datagrid.methods, jq, data);
+                },
+                getAllRows: function(jq){
+                	return jq.data('datagrid').allRows;
+                }
+			})
+		})(jQuery);
+
+		function getData(){
+			var rows = [];
+			for(var i=1; i<=800; i++){
+				var amount = Math.floor(Math.random()*1000);
+				var price = Math.floor(Math.random()*1000);
+				rows.push({
+					inv: 'Inv No '+i,
+					date: $.fn.datebox.defaults.formatter(new Date()),
+					name: 'Name '+i,
+					amount: amount,
+					price: price,
+					cost: amount*price,
+					note: 'Note '+i
+				});
+			}
+			return rows;
+		}
+		
+		$(function(){
+			$('#dg').datagrid({data:getData()}).datagrid('clientPaging');
+			$('#dg2').datagrid({data:getData()}).datagrid('clientPaging');
+			$('#dg3').datagrid({data:getData()}).datagrid('clientPaging');
+			$('#dg4').datagrid({data:getData()}).datagrid('clientPaging');			
+		});
+	</script>	
+</body>
+</html>

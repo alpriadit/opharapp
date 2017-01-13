@@ -1,0 +1,11 @@
+[{
+	"id":1,
+	"text":"Menu",
+	"children":[{
+		"id":2,
+		"text":"Koreksi Tarif Index Meter"			
+	}, {
+		"id":3,
+		"text":"Monitoring"		
+	}]
+}]

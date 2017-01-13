@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Basic Form - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+</head>
+<body>
+	<!--<h2>Basic Form</h2>
+	<p>Fill the form and submit it.</p> !-->
+	<div style="margin:20px 0;"></div>
+	<div class="easyui-panel" title="Koreksi Tarif Index Meter" style="width:340px">
+		<div style="padding:20px 30px 30px 30px">
+	    <form id="ff" method="post">
+	    	<form id="ff" method="post">
+	    	<table cellpadding="5">
+				<tr>	    			
+	    			<td>
+	    				<select class="easyui-combobox" name="language">
+							<option value="SA">Sudah Aktivasi</option>
+							<option value="BA">Belum Aktivasi</option>					
+						</select>
+	    			</td>
+	    		</tr>
+			
+	    		<tr>
+	    			<td>No Agenda</td>
+	    			<td><input class="easyui-textbox" type="text" name="name" data-options="required:true"></input></td>
+	    		</tr>
+				<tr>
+	    			<td>No Meter</td>
+	    			<td><input class="easyui-textbox" type="text" name="name" data-options="required:true"></input></td>
+	    		</tr>	
+				<tr>
+	    			<td>Merk Meter</td>
+	    			<td><input class="easyui-textbox" type="text" name="name" data-options="required:true"></input></td>
+	    		</tr>
+				<tr>
+	    			<td>Type Meter</td>
+	    			<td><input class="easyui-textbox" type="text" name="name" data-options="required:true"></input></td>
+	    		</tr>
+				<tr>
+	    			<td>Tarif Index Lama</td>
+	    			<td><input class="easyui-textbox" type="text" name="name" data-options="required:true"></input></td>
+	    		</tr>
+				<tr>
+	    			<td>Koreksi Tarif Index</td>
+	    			<td><input class="easyui-textbox" type="text" name="name" data-options="required:true"></input></td>
+	    		</tr>				    
+	    	</table>
+	    </form>
+	    </form>
+	    <div style="text-align:right;padding:5px">
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">Simpan</a>
+	    	<!-- <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">Clear</a> !-->
+	    </div>
+	    </div>
+	</div>
+	<script>
+		function submitForm(){
+			$('#ff').form('submit');
+		}
+		function clearForm(){
+			$('#ff').form('clear');
+		}
+	</script>
+</body>
+</html>

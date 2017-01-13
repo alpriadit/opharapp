@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Full Layout - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+</head>
+<body class="easyui-layout">
+	<div data-options="region:'north',border:false" style="height:50px;background:#00008B;padding:1px 1px 1px 10px">
+		<p style="font-size:14px; color:white;">Selamat Datang : ADMIN</p>			
+	</div>	
+		
+	<div data-options="region:'west',split:true,title:'Menu'" style="width:250px;padding:5px;">
+		<ul class="easyui-tree" data-options="url:'tree_data1.json',method:'get',animate:true,dnd:true"></ul>	
+	</div>	
+	
+	<div data-options="region:'center',title:'Main'">
+	
+	<div style="padding:10px 10px 10px 10px">	
+	<div class="easyui-panel" title="Koreksi Tarif Index Meter" style="width:365px">
+		<div style="padding:15px 30px 20px 30px">
+	    <form id="ff" method="post">	    	
+	    	<table cellpadding="5">
+				<tr>	    			
+	    			<td colspan="2">
+	    				<select class="easyui-combobox" name="language" style="width: 150px; height: 20px;">
+							<option value="SA">Sudah Aktivasi </option>
+							<option value="BA">Belum Aktivasi </option>					
+						</select>
+	    			</td>
+	    		</tr>
+			
+	    		<tr>
+	    			<td>No Agenda</td>
+	    			<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width:160px;height:26px;"></input></td>
+	    		</tr>
+				<tr>
+	    			<td>No Meter</td>
+	    			<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width:160px;height:26px;"></input></td>
+	    		</tr>	
+				<tr>
+	    			<td>Merk Meter</td>
+	    			<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width:160px;height:26px;"></input></td>
+	    		</tr>
+				<tr>
+	    			<td>Type Meter</td>
+	    			<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width:160px;height:26px;"></input></td>
+	    		</tr>
+				<tr>
+	    			<td>Tarif Index Lama</td>
+	    			<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width:160px;height:26px;"></input></td>
+	    		</tr>
+				<tr>
+	    			<td>Koreksi Tarif Index</td>
+	    			<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width:160px;height:26px;"></input></td>
+	    		</tr>				    
+	    	</table>	    
+	    </form>
+		<hr>
+	    <div style="text-align:right;padding:5px">
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">Simpan</a>
+	    	<!-- <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">Clear</a> !-->
+	    </div>
+	    </div>
+	</div>
+	<script>
+		function submitForm(){
+			$('#ff').form('submit');
+		}
+		function clearForm(){
+			$('#ff').form('clear');
+		}
+	</script>	
+	
+	</div>
+	</div>
+</body>
+</html>

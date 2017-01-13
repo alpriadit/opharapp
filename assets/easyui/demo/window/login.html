@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Window Layout - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+</head>
+<body>
+	<!--<h2>Window Layout</h2>
+	<p>Using layout on window.</p>
+	<div style="margin:20px 0;">
+		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#w').window('open')">Open</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" onclick="$('#w').window('close')">Close</a>
+	</div> !-->
+	<div id="w" class="easyui-window" title=" Login Form " data-options="minimizable:false,maximizable:false,closable:false,tools:'#tt'" style="width:300px;height:180px;padding:5px;">
+		<div class="easyui-layout" data-options="fit:true">
+						
+		<div style="padding:10px 10px 10px 10px">
+	    <form id="ff" method="post">
+	    	<table cellpadding="5">			
+	    		<tr>
+	    			<td>User</td>
+	    			<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width:160px;height:26px;"></input></td>
+	    		</tr>
+				<tr>
+	    			<td>Password</td>
+	    			<td><input class="easyui-textbox" type="password" name="name" data-options="required:true" style="width:160px;height:26px;"></input></td>
+	    		</tr>									    
+	    	</table>
+	    </form>
+	    <!--<div style="text-align:center;padding:5px">
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">Submit</a>
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">Clear</a>
+	    </div> !-->
+	    </div>			
+			
+			<div data-options="region:'south',border:false" style="text-align:right;padding:10px 10px 10px 10px;">
+				<a class="easyui-linkbutton" href="javascript:void(0)" onclick="javascript:alert('ok')" style="width:80px">Login</a>
+				<a class="easyui-linkbutton" href="javascript:void(0)" onclick="javascript:alert('cancel')" style="width:80px">Reset</a> 
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
