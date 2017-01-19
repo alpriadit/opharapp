@@ -14,24 +14,32 @@
 
 	<!-- form info agenda -->
 
-            <div title="Pembatalan Restitusi" style="padding:10px;background:#e1e6f9" >
-	            <div style="padding: 0 5px 5px 5px">
-	            <div class="easyui-panel" title="Pembatalan Restitusi" style="width:98%;padding: 10px 13px 10px 10px">	
-					<form action="" method="post" id="form1">	
-						<fieldset style="border:0.5px solid #95b8e7;width:98%;margin: 0 0 0 0;padding:5px 10px 10px 10px" >
-						<legend style="color:#39516d;font-weight: bold;">Input Data</legend>
-							<table b width="100%">	
-								<tr>
-									<td width="10%" style="padding:0 0 0 5px"><b>No Agenda:</b></td>
-									<td width="15%"> 
-										<input class="easyui-textbox" type="text" name="inNoAgenda" id="inNoAgenda" data-options="required:true,prompt:'Masukan No Agenda...'" style="width:100%;height:26px;"></input>
+	<div region="center" border="false" border="false">
+		<div class="easyui-tabs" fit="true" id="tt">
+			<div title="Pembatalan Restitusi" style="padding:10px;background:#e1e6f9" >
+				<div style="padding: 0 5px 5px 5px">
+					<div class="easyui-panel" title="Pembatalan Restitusi" style="width:98%;padding: 10px 13px 10px 10px">	
+						<form action="" method="post" id="form1">	
+							<fieldset style="border:0.5px solid #95b8e7;width:98%;margin: 0 0 0 0;padding:5px 10px 10px 10px" >
+								<legend style="color:#39516d;font-weight: bold;">Input Data</legend>
+								<table b width="100%">	
+									<tr>
+										<td width="10%" style="padding:0 0 0 5px"><b>No Agenda:</b></td>
+										<td width="15%"> 
+											<input class="easyui-textbox" type="text" name="inNoAgenda" id="inNoAgenda" data-options="required:true,prompt:'Masukan No Agenda...'" style="width:100%;height:26px;"></input>
+										</td>
+										<td width="7%">
+											<td width="10%" style="padding:0 0 0 5px"><b>No Tiket:</b></td>
+										</td>
+										<td width="15%"> 
+											<input class="easyui-textbox" type="text" name="inNoTiket" id="inNoTiket" data-options="required:false,prompt:'Masukan No Tiket...',validType:'maxLength[15]'" style="width:100%;height:26px;"></input>	
+											<input value="<?php echo $this->session->userdata('id_user');?>" type="hidden" name="inUser" id="inUser" data-options="required:false,readonly:true" style="width:100%;"></input>
+										</td>
+
+										<td width="10%" style="padding:0 0 0 5px"><b>Keterangan:</b></td>
 									</td>
-									<td width="7%">
-									<td width="10%" style="padding:0 0 0 5px"><b>No Tiket:</b></td>
-									</td>
 									<td width="15%"> 
-										<input class="easyui-textbox" type="text" name="inNoTiket" id="inNoTiket" data-options="required:false,prompt:'Masukan No Tiket...',validType:'maxLength[15]'" style="width:100%;height:26px;"></input>	
-										<input value="<?php echo $this->session->userdata('id_user');?>" type="hidden" name="inUser" id="inUser" data-options="required:false,readonly:true" style="width:100%;"></input>
+										<input class="easyui-textbox" type="text" name="inKeterangan" id="inKeterangan" data-options="required:false,prompt:'Masukan Keterangan'" style="width:100%;height:26px;"></input>	
 									</td>
 									<td width="7%">
 									</td>
@@ -47,8 +55,8 @@
 									<td width="15%"> 
 										<input class="easyui-textbox" type="text" name="inPermintaan" id="inPermintaan" data-options="required:false,prompt:'Masukan Permintaan...'" style="width:100%;height:26px;"></input>
 									</td>
-									</td>
-									<td width="7%">
+								</td>
+								<td width="7%">
 									<td width="10%" style="padding:0 0 0 5px"><b>Tanggal Permintaan:</b></td>
 									<td width="15%"> 
 										<input class="easyui-textbox" type="text" name="inTglPermintaan" id="inTglPermintaan" data-options="required:false,prompt:'YYYYMMDD',validType:'Length[8]'" style="width:100%;height:26px;"></input>	
@@ -66,131 +74,127 @@
 										<input class="easyui-textbox" type="text" name="inPerihal" id="inPerihal" data-options="required:false,prompt:'Masukan Perihal...'" style="width:100%;height:26px;"></input>
 									</td>
 									<td width="7%">
-									<td width="10%" style="padding:0 0 0 5px"><b>No BA:</b></td>
-									</td>
-									<td width="15%"> 
-										<input class="easyui-textbox" type="text" name="inNoBA" id="inNoBA" data-options="required:false,prompt:'Masukan No BA...'" style="width:100%;height:26px;"></input>	
-									</td>
-									<td width="7%">
-										<a href="" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="float:lefts;width:100%;height:26px;" id="bcari" onclick="button()">CARI</a>
-									</td>
-									<td width="7%">
-										<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="float:lefts;width:100%;height:26px;" id="breset" onclick="window.location.reload()" disabled>RESET</a>
-									</td>
-									<td width="7%">
-										<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save'" style="float:lefts;width:100%;height:26px;" id="bsimpan" onclick="" disabled>BATALKAN</a>
-									</td>
-									<td width="7%">
-									</td>
-									<td width="15%">
-									</td>
-								</tr>
-							</table>
-						</fieldset>
-						<fieldset style="border:0.5px solid #95b8e7;width:98%;margin: 15px 0 15px 0;padding:15px 10px 10px 10px" >
-							<legend style="color:#39516d;font-weight: bold;">Info Pelanggan</legend>
-							<table width="100%">
+										<td width="10%" style="padding:0 0 0 5px"><b>No BA:</b></td>
+										<td width="15%"> 
+											<input class="easyui-textbox" type="text" name="inNoBA" id="inNoBA" data-options="required:false,prompt:'Masukan No BA...',validType:'maxLength[35]'" style="width:100%;height:26px;"></input>	
+										</td>
+										<td >
+											<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="float:lefts;width:95%;height:26px;" id="bcari" onclick="button()">CARI</a>
+										</td>
+										<td>
+											<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="float:lefts;width:50%;height:26px;" id="breset" onclick="window.location.reload()" disabled>RESET</a>
+											
+											<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save'" style="width:80px;height:26px;" id="bsimpan" onclick="simpan()" disabled>SIMPAN</a>
+										</td>
+										<td width="7%">
+										</td>
+									</tr>
+								</table>
+							</fieldset>
+							<fieldset style="border:0.5px solid #95b8e7;width:98%;margin: 15px 0 15px 0;padding:15px 10px 10px 10px" >
+								<legend style="color:#39516d;font-weight: bold;">Info Pelanggan</legend>
+								<table width="100%">
+									<tr>
+										<td width="15%">Unit UP</td>
+										<td width="25%"><input class="easyui-textbox" type="text" name="inUnitUp" id="inUnitUp" data-options="required:false,readonly:true" style="width:40%;"></input></td>
+										<td width="5%"></td>
+										<td width="15%">Jenis Transasksi</td>
+										<td width="40%" colspan="2"><input class="easyui-textbox" type="text" name="injenis" id="injenis" data-options="required:false,readonly:true" style="width:40%;"></input></td>					
+									</tr>
+									<tr>
+										<td width="15%">Id Pelanggan</td>
+										<td width="25%"><input class="easyui-textbox" type="text" name="inIdPelanggan" id="inIdPelanggan" data-options="required:false,readonly:true" style="width:50%;"></input></td>
+										<td width="5%"></td>
+										<td width="15%">Tanggal Permohonan</td>
+										<td width="40%" colspan="2"><input class="easyui-textbox" type="text" name="inTanggalAgenda" id="inTanggalAgenda" data-options="required:false,readonly:true" style="width:40%;"></input></td>					
+									</tr>
+									<tr>
+										<td width="15%">Nama Pelanggan</td>
+										<td width="25%"><input class="easyui-textbox" type="text" name="inNamaPelanggan" id="inNamaPelanggan" data-options="required:false,readonly:true" style="width:80%;"></input></td>
+										<td width="5%"></td>
+										<td width="15%">Asal Mohon</td>
+										<td width="40%" colspan="2"><input class="easyui-textbox" type="text" name="inAsalMohon" id="inAsalMohon" data-options="required:false,readonly:true" style="width:40%;"></input></td>					
+										
+										
+									</tr>
+									<tr>
+										<td width="15%" rowspan="2">Alamat Pelanggan</td>
+										<td width="25%" rowspan="2"><textarea class="easyui-textbox" type="text" rows="2" cols="42" value="" name="inAlamat" id="inAlamat" data-options="required:false,readonly:true,multiline:true" style="width:90%;height:50px"></textarea></td>
+										<td width="5%"></td>
+										<td width="15%">Tarif </td>
+										<td width="20%"><input class="easyui-textbox" type="text" name="inTarifLama" id="inTarifLama" data-options="required:false,readonly:true" style="width:100%;"></input></td>				
+										<td width="20%"><input class="easyui-textbox" type="text" name="inTarifBaru" id="inTarifBaru" data-options="required:false,readonly:true" style="width:90%;"></input></td>
+									</tr>	
+									<tr>
+										<td></td>
+										<td width="15%">Daya </td>
+										<td width="20%"><input class="easyui-textbox" type="text" name="inDayaLama" id="inDayaLama" data-options="required:false,readonly:true" style="width:100%;"></input></td>					
+										<td width="20%"><input class="easyui-textbox" type="text" name="inDayaBaru" id="inDayaBaru" data-options="required:false,readonly:true" style="width:90%;"></input></td>
+									</tr>
+									<tr>
+										<td width="15%">Telpon/Hp</td>
+										<td width="25%"><input class="easyui-textbox" type="text" name="inHp" id="inHp" data-options="required:false,readonly:true,multiline:true" style="width:90%;height:40px;"></input></td>
+										<td width="5%"></td>
+										<td width="15%">Paket SAR </td>
+										<td colspan="2"><input class="easyui-textbox" type="text" name="inPaketSar" id="inPaketSar" data-options="required:false,readonly:true,multiline:true" style="width:55%;height:40px"></input></td>					
+									</tr>
+									<tr>
+										<td width="15%">Nama Pemohon</td>
+										<td width="25%"><input class="easyui-textbox" type="text" name="inNamaPemohon" id="inNamaPemohon" data-options="required:false,readonly:true" style="width:80%;"></input></td>
+										<td width="5%"></td>
+										<td width="15%">Kode Paket SAR</td>
+										<td colspan="2"><input class="easyui-textbox" type="text" name="inKodePaketSar" id="inKodePaketSar" data-options="required:false,readonly:true" style="width:30%;"></input></td>					
+									</tr>
+									<tr>
+										<td width="15%">No SIP</td>
+										<td width="25%"><input class="easyui-textbox" type="text" name="inNoSip" id="inNoSip" data-options="required:false,readonly:true" style="width:50%;"></input></td>
+										<td width="5%"></td>
+										<td width="15%">No Kolektif </td>
+										<td colspan="2"><input class="easyui-textbox" type="text" name="inNoKolektif" id="inNoKolektif" data-options="required:false,readonly:true" style="width:30%;"></input></td>	
+									</tr>
+									<tr>
+										<td width="15%">Alamat Pemohon</td>
+										<td width="25%"><input class="easyui-textbox" type="text" name="inAlamatPemohon" id="inAlamatPemohon" data-options="required:false,readonly:true,multiline:true" style="width:90%;height:60px"></input></td>
+										<td width="5%"></td>
+										<td width="15%">Alasan Keputusan </td>
+										<td colspan="2"><textarea class="easyui-textbox" type="text" rows="2" cols="42" name="inAlasanKeputusan" id="inAlasanKeputusan" data-options="required:false,readonly:true,multiline:true" style="width:50%;height:60px"></textarea></td>
+									</tr>
+									<tr>
+										<td width="15%">Kode Keputusan</td>
+										<td width="25%"><input class="easyui-textbox" type="text" name="inKodeKeputusan" id="inKodeKeputusan" data-options="required:false,readonly:true" style="width:50%;"></input></td>
+										<td width="5%"></td>
+										<td width="15%">Bank/No.Rekening </td>
+										<td width="20%"><input class="easyui-textbox" type="text" name="inBank" id="inBank" data-options="required:false,readonly:true" style="width:100%;"></input></td>					
+										<td width="20%"><input class="easyui-textbox" type="text" name="inNorek" id="inNorek" data-options="required:false,readonly:true" style="width:80%;float:left"></input></td>					
+										
+									</tr>
+									<tr>
+										<td width="15%">Jatuh Tempo</td>
+										<td width="25%"><input class="easyui-textbox" type="text" name="inJatuhTempo" id="inJatuhTempo" data-options="required:false,readonly:true" style="width:50%;"></input></td>
+										<td width="5%"></td>
+										<td width="15%">Nama Di Rekening </td>
+										<td colspan="2"><input class="easyui-textbox" type="text" name="inNamaRek" id="inNamaRek" data-options="required:false,readonly:true" style="width:40%;"></input></td>					
+									</tr>
+									<tr>
+										<td width="15%">UJL Realisasi</td>
+										<td width="25%"><input class="easyui-textbox" type="text" name="inUJL" id="inUJL" data-options="required:false,readonly:true" style="width:50%;"></input></td>
+										<td width="5%"></td>
+										<td width="15%">Keperluan</td>
+										<td colspan="2"><input class="easyui-textbox" type="text" name="inKeperluan" id="inKeperluan" data-options="required:false,readonly:true" style="width:40%;"></input></td>					
+									</tr>				
+								</table>
+							</fieldset>
+							<table style="border:0.5px solid #95b8e7;float:left;width:100%;margin: 0 0 15px 0;padding:5px 5px 5px 5px" >
 								<tr>
-									<td width="15%">Unit UP</td>
-									<td width="25%"><input class="easyui-textbox" type="text" name="inUnitUp" id="inUnitUp" data-options="required:false,readonly:true" style="width:40%;"></input></td>
-									<td width="5%"></td>
-									<td width="15%">Jenis Transasksi</td>
-									<td width="40%" colspan="2"><input class="easyui-textbox" type="text" name="injenis" id="injenis" data-options="required:false,readonly:true" style="width:40%;"></input></td>					
-								</tr>
-								<tr>
-									<td width="15%">Id Pelanggan</td>
-									<td width="25%"><input class="easyui-textbox" type="text" name="inIdPelanggan" id="inIdPelanggan" data-options="required:false,readonly:true" style="width:50%;"></input></td>
-									<td width="5%"></td>
-									<td width="15%">Tanggal Permohonan</td>
-									<td width="40%" colspan="2"><input class="easyui-textbox" type="text" name="inTanggalAgenda" id="inTanggalAgenda" data-options="required:false,readonly:true" style="width:40%;"></input></td>					
-								</tr>
-								<tr>
-									<td width="15%">Nama Pelanggan</td>
-									<td width="25%"><input class="easyui-textbox" type="text" name="inNamaPelanggan" id="inNamaPelanggan" data-options="required:false,readonly:true" style="width:80%;"></input></td>
-									<td width="5%"></td>
-									<td width="15%">Asal Mohon</td>
-									<td width="40%" colspan="2"><input class="easyui-textbox" type="text" name="inAsalMohon" id="inAsalMohon" data-options="required:false,readonly:true" style="width:40%;"></input></td>					
-									
-									
-								</tr>
-								<tr>
-									<td width="15%" rowspan="2">Alamat Pelanggan</td>
-									<td width="25%" rowspan="2"><textarea class="easyui-textbox" type="text" rows="2" cols="42" value="" name="inAlamat" id="inAlamat" data-options="required:false,readonly:true,multiline:true" style="width:90%;height:50px"></textarea></td>
-									<td width="5%"></td>
-									<td width="15%">Tarif </td>
-									<td width="20%"><input class="easyui-textbox" type="text" name="inTarifLama" id="inTarifLama" data-options="required:false,readonly:true" style="width:100%;"></input></td>				
-									<td width="20%"><input class="easyui-textbox" type="text" name="inTarifBaru" id="inTarifBaru" data-options="required:false,readonly:true" style="width:90%;"></input></td>
-								</tr>	
-								<tr>
-									<td></td>
-									<td width="15%">Daya </td>
-									<td width="20%"><input class="easyui-textbox" type="text" name="inDayaLama" id="inDayaLama" data-options="required:false,readonly:true" style="width:100%;"></input></td>					
-									<td width="20%"><input class="easyui-textbox" type="text" name="inDayaBaru" id="inDayaBaru" data-options="required:false,readonly:true" style="width:90%;"></input></td>
-								</tr>
-								<tr>
-									<td width="15%">Telpon/Hp</td>
-									<td width="25%"><input class="easyui-textbox" type="text" name="inHp" id="inHp" data-options="required:false,readonly:true,multiline:true" style="width:90%;height:40px;"></input></td>
-									<td width="5%"></td>
-									<td width="15%">Paket SAR </td>
-									<td colspan="2"><input class="easyui-textbox" type="text" name="inPaketSar" id="inPaketSar" data-options="required:false,readonly:true,multiline:true" style="width:55%;height:40px"></input></td>					
-								</tr>
-								<tr>
-									<td width="15%">Nama Pemohon</td>
-									<td width="25%"><input class="easyui-textbox" type="text" name="inNamaPemohon" id="inNamaPemohon" data-options="required:false,readonly:true" style="width:80%;"></input></td>
-									<td width="5%"></td>
-									<td width="15%">Kode Paket SAR</td>
-									<td colspan="2"><input class="easyui-textbox" type="text" name="inKodePaketSar" id="inKodePaketSar" data-options="required:false,readonly:true" style="width:30%;"></input></td>					
-								</tr>
-								<tr>
-									<td width="15%">No SIP</td>
-									<td width="25%"><input class="easyui-textbox" type="text" name="inNoSip" id="inNoSip" data-options="required:false,readonly:true" style="width:50%;"></input></td>
-									<td width="5%"></td>
-									<td width="15%">No Kolektif </td>
-									<td colspan="2"><input class="easyui-textbox" type="text" name="inNoKolektif" id="inNoKolektif" data-options="required:false,readonly:true" style="width:30%;"></input></td>	
-								</tr>
-								<tr>
-									<td width="15%">Alamat Pemohon</td>
-									<td width="25%"><input class="easyui-textbox" type="text" name="inAlamatPemohon" id="inAlamatPemohon" data-options="required:false,readonly:true,multiline:true" style="width:90%;height:60px"></input></td>
-									<td width="5%"></td>
-									<td width="15%">Alasan Keputusan </td>
-									<td colspan="2"><textarea class="easyui-textbox" type="text" rows="2" cols="42" name="inAlasanKeputusan" id="inAlasanKeputusan" data-options="required:false,readonly:true,multiline:true" style="width:50%;height:60px"></textarea></td>
-								</tr>
-								<tr>
-									<td width="15%">Kode Keputusan</td>
-									<td width="25%"><input class="easyui-textbox" type="text" name="inKodeKeputusan" id="inKodeKeputusan" data-options="required:false,readonly:true" style="width:50%;"></input></td>
-									<td width="5%"></td>
-									<td width="15%">Bank/No.Rekening </td>
-									<td width="20%"><input class="easyui-textbox" type="text" name="inBank" id="inBank" data-options="required:false,readonly:true" style="width:100%;"></input></td>					
-									<td width="20%"><input class="easyui-textbox" type="text" name="inNorek" id="inNorek" data-options="required:false,readonly:true" style="width:80%;float:left"></input></td>					
-								
-								</tr>
-								<tr>
-									<td width="15%">Jatuh Tempo</td>
-									<td width="25%"><input class="easyui-textbox" type="text" name="inJatuhTempo" id="inJatuhTempo" data-options="required:false,readonly:true" style="width:50%;"></input></td>
-									<td width="5%"></td>
-									<td width="15%">Nama Di Rekening </td>
-									<td colspan="2"><input class="easyui-textbox" type="text" name="inNamaRek" id="inNamaRek" data-options="required:false,readonly:true" style="width:40%;"></input></td>					
-								</tr>
-								<tr>
-									<td width="15%">UJL Realisasi</td>
-									<td width="25%"><input class="easyui-textbox" type="text" name="inUJL" id="inUJL" data-options="required:false,readonly:true" style="width:50%;"></input></td>
-									<td width="5%"></td>
-									<td width="15%">Keperluan</td>
-									<td colspan="2"><input class="easyui-textbox" type="text" name="inKeperluan" id="inKeperluan" data-options="required:false,readonly:true" style="width:40%;"></input></td>					
-								</tr>				
-							</table>
-						</fieldset>
-						<table style="border:0.5px solid #95b8e7;float:left;width:100%;margin: 0 0 15px 0;padding:5px 5px 5px 5px" >
-							<tr>
-								<td>
-									<table style="float:left;width:50%;">
-										<tr>				
-											<td colspan="2" align="center">
-												<table id="dg2" title="Data Biaya" style="width:100%;height:150px" data-options="
-															singleSelect:true,
-															autoRowHeight:false,
-															pagination:false,
-															pageSize:10">
+									<td>
+										<table style="float:left;width:50%;">
+											<tr>				
+												<td colspan="2" align="center">
+													<table id="dg2" title="Data Biaya" style="width:100%;height:150px" data-options="
+													singleSelect:true,
+													autoRowHeight:false,
+													pagination:false,
+													pageSize:10">
 													<thead>
 														<tr>	                    												
 															<th field="NMPIUTANG" width="40%" align="center">NMPIUTANG</th>
@@ -205,49 +209,51 @@
 										<tr>
 											<td colspan="2" align="center">
 												<table id="dg" title="Data Flow" style="width:100%;height:150px" data-options="
-															singleSelect:true,												
-															autoRowHeight:false,
-															pagination:false,
-															pageSize:10">
-													<thead>
-														<tr>	                    												
-															<th field="KETERANGAN" width="40%" align="center">KETERANGAN</th>
-															<th field="TANGGAL" width="40%" align="center">TANGGAL</th>																		
-														</tr>
-													</thead>
-												</table>						
-												
-											</td>
-										</tr>
-									</table>
-								</td>
-							</tr>
-						</table>
-					</form>
-                </div>		       
-	            </div>
-	            <!-- </div> -->   					
-            </div>	    
-	
-	<!-- script menampilkan datagrid -->
-	<script>
+												singleSelect:true,												
+												autoRowHeight:false,
+												pagination:false,
+												pageSize:10">
+												<thead>
+													<tr>	                    												
+														<th field="KETERANGAN" width="40%" align="center">KETERANGAN</th>
+														<th field="TANGGAL" width="40%" align="center">TANGGAL</th>																		
+													</tr>
+												</thead>
+											</table>						
+											
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>		       
+		</div>
+		<!-- </div> -->   					
+	</div>	        				
+</div>
+</div>
+
+<!-- script menampilkan datagrid -->
+<script>
 		//Tiket length
 		$.extend($.fn.validatebox.defaults.rules, {
-		    maxLength: {
-		        validator: function(value, param){
-		            return value.length <= param[0];
-		        },
-		        message: 'Tidak boleh lebih dari {0} karakter.'
-		    }
+			maxLength: {
+				validator: function(value, param){
+					return value.length <= param[0];
+				},
+				message: 'Tidak boleh lebih dari {0} karakter.'
+			}
 		});
 
 		$.extend($.fn.validatebox.defaults.rules, {
-		    Length: {
-		        validator: function(value, param){
-		            return value.length == param[0];
-		        },
-		        message: 'Harus {0} karakter.'
-		    }
+			Length: {
+				validator: function(value, param){
+					return value.length == param[0];
+				},
+				message: 'Harus {0} karakter.'
+			}
 		});
 
 		(function($){
@@ -275,14 +281,14 @@
 				clientPaging: function(jq){
 					return jq.each(function(){
 						var dg = $(this);
-                        var state = dg.data('datagrid');
-                        var opts = state.options;
-                        opts.loadFilter = pagerFilter;
-                        var onBeforeLoad = opts.onBeforeLoad;
-                        opts.onBeforeLoad = function(param){
-                            state.allRows = null;
-                            return onBeforeLoad.call(this, param);
-                        }
+						var state = dg.data('datagrid');
+						var opts = state.options;
+						opts.loadFilter = pagerFilter;
+						var onBeforeLoad = opts.onBeforeLoad;
+						opts.onBeforeLoad = function(param){
+							state.allRows = null;
+							return onBeforeLoad.call(this, param);
+						}
 						dg.datagrid('getPager').pagination({
 							onSelectPage:function(pageNum, pageSize){
 								opts.pageNumber = pageNum;
@@ -294,68 +300,68 @@
 								dg.datagrid('loadData',state.allRows);
 							}
 						});
-                        $(this).datagrid('loadData', state.data);
-                        if (opts.url){
-                        	$(this).datagrid('reload');
-                        }
+						$(this).datagrid('loadData', state.data);
+						if (opts.url){
+							$(this).datagrid('reload');
+						}
 					});
 				},
-                loadData: function(jq, data){
-                    jq.each(function(){
-                        $(this).data('datagrid').allRows = null;
-                    });
-                    return loadDataMethod.call($.fn.datagrid.methods, jq, data);
-                },
-                getAllRows: function(jq){
-                	return jq.data('datagrid').allRows;
-                }
+				loadData: function(jq, data){
+					jq.each(function(){
+						$(this).data('datagrid').allRows = null;
+					});
+					return loadDataMethod.call($.fn.datagrid.methods, jq, data);
+				},
+				getAllRows: function(jq){
+					return jq.data('datagrid').allRows;
+				}
 			});						
-		})(jQuery);
+})(jQuery);
 
-		function getData(){
-			var rows = [];
-
-
-				var KETERANGAN = '';
-				var TANGGAL = '';
+function getData(){
+	var rows = [];
 
 
-				rows.push({
-					KETERANGAN:KETERANGAN,
-					TANGGAL:TANGGAL				
-				});
+	var KETERANGAN = '';
+	var TANGGAL = '';
 
 
-			return rows;	
-		}
-		
-		$(function(){
-			$('#dg').datagrid({data:getData()}).datagrid('clientPaging');
-			$('#dg2').datagrid({data:getData()}).datagrid('clientPaging');
-			$('#dg3').datagrid({data:getData()}).datagrid('clientPaging');
-		});
+	rows.push({
+		KETERANGAN:KETERANGAN,
+		TANGGAL:TANGGAL				
+	});
 
-		function addTab(title){				
-            if ($('#tt').tabs('exists', title)){
-                $('#tt').tabs('select', title);
-            } 
-        }
 
-        $(document).ready(function(){
-		  $("#bcari").click(function(){
+	return rows;	
+}
+
+$(function(){
+	$('#dg').datagrid({data:getData()}).datagrid('clientPaging');
+	$('#dg2').datagrid({data:getData()}).datagrid('clientPaging');
+	$('#dg3').datagrid({data:getData()}).datagrid('clientPaging');
+});
+
+function addTab(title){				
+	if ($('#tt').tabs('exists', title)){
+		$('#tt').tabs('select', title);
+	} 
+}
+
+$(document).ready(function(){
+	$("#bcari").click(function(){
 			// if($("#inNoAgenda").val().length>3){
-			var noagenda = $('#inNoAgenda').val();
-			var notiket = $('#inNoTiket').val();
+				var noagenda = $('#inNoAgenda').val();
+				var notiket = $('#inNoTiket').val();
 
-			if(noagenda==''){
-				$.messager.alert('Informasi','NO AGENDA Tidak Boleh Kosong','info');
-			}else {
-				$.ajax({
-					type: "post",
-					url: "<?php echo site_url('home/getdata') ?>",
-					cache: false,				
-					data:'inNoAgenda='+$("#inNoAgenda").val(),
-					success: function(response){
+				if(noagenda==''){
+					$.messager.alert('Informasi','NO AGENDA Tidak Boleh Kosong','info');
+				}else {
+					$.ajax({
+						type: "post",
+						url: "<?php echo site_url('home/getdata') ?>",
+						cache: false,				
+						data:'inNoAgenda='+$("#inNoAgenda").val(),
+						success: function(response){
 							var obj = JSON.parse(response);
 							if (obj.dataagenda=="Data Tidak Ditemukan") {
 								var hasil = obj.dataagenda;
@@ -418,55 +424,60 @@
 
 								console.log(obj);
 							};
-					}
-				});
-				
-				$('#bcari').linkbutton('disable');
-		      	$('#breset').linkbutton('enable');
-				$('#bsimpan').linkbutton('enable');
-				$('#inNoAgenda').textbox('readonly',true);
-			};
-			return false;
-		  });
-		});		
+						}
+					});
+
+$('#bcari').linkbutton('disable');
+$('#breset').linkbutton('enable');
+$('#bsimpan').linkbutton('enable');
+$('#inNoAgenda').textbox('readonly',true);
+};
+return false;
+});
+});		
 
 
-	function button(){
-		
-    }
+function button(){
+	
+}
 
-   //  function simpan(){
-   //  	var notiket = $('#inNoTiket').val();
-   //  	var permintaan = $('#inPermintaan').val();
-   //  	var tglpermintaan = $('#inTglPermintaan').val();
-   //  	var perihal = $('#inPerihal').val();
-   //  	var noba = $('#inNoBA').val();
-   //  	if (notiket=='') {
-   //  		$.messager.alert('Informasi','Harap Isi No Tiket','info');
-   //  	} else if(permintaan==''){
-   //  		$.messager.alert('Informasi','Harap Isi Permintaan Dari Mana','info');
-   //  	} else if(tglpermintaan==''){
-   //  		$.messager.alert('Informasi','Harap Isi Tanggal Permintaan','info');
-   //  	} else if(perihal==''){
-   //  		$.messager.alert('Informasi','Harap Isi Perihal','info');
-   //  	} else if(noba==''){
-   //  		$.messager.alert('Informasi','Harap Isi Nomer BA','info');
-   //  	} else {
-   //  		$.ajax({
-			// 	type: "post",
-			// 	url: "<?php echo site_url('home/save') ?>",
-			// 	cache: false,				
-			// 	data:$('#form1').serialize(),
-			// 	success: function(response){
-			// 			var obj = JSON.parse(response);
-			// 			var hasil = obj.hasil;
-			// 			$.messager.alert('Informasi',hasil,'info');
-			// 			console.log(obj);
-			// 	}
-			// });
-   //  	};
-   //  }
-
-	</script>	
+function simpan(){
+	var notiket = $('#inNoTiket').val();
+	var permintaan = $('#inPermintaan').val();
+	var tglpermintaan = $('#inTglPermintaan').val();
+	var perihal = $('#inPerihal').val();
+	var noba = $('#inNoBA').val();
+	var keterangan = $('#inKeterangan').val();
+	if (notiket=='') {
+		$.messager.alert('Informasi','Harap Isi No Tiket','info');
+	} else if(permintaan==''){
+		$.messager.alert('Informasi','Harap Isi Permintaan Dari Mana','info');
+	} else if(tglpermintaan==''){
+		$.messager.alert('Informasi','Harap Isi Tanggal Permintaan','info');
+	} else if(perihal==''){
+		$.messager.alert('Informasi','Harap Isi Perihal','info');
+	} else if(keterangan==''){
+		$.messager.alert('Informasi','Harap Isi Keterangan','info');
+	} else if(noba==''){
+		$.messager.alert('Informasi','Harap Isi Noba','info');
+	} else {
+		$.ajax({
+			type: "post",
+			url: "<?php echo site_url('home/save2') ?>",
+			cache: false,				
+			data:$('#form1').serialize(),
+			success: function(response){
+				var obj = JSON.parse(response);
+				var hasil = obj.hasil;
+				$.messager.alert('Informasi',hasil,'info');
+				if (hasil == "SUKSES") {
+					$('#bsimpan').linkbutton('disable');
+				};
+				console.log(obj);
+			}
+		});
+	};
+}
+</script>	
 </body>
 </html>

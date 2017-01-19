@@ -61,7 +61,7 @@
         $p_cursor3 = oci_new_cursor($this->pblmig_db->conn_id);
 
         //Send parameters variable  value  lenght
-        oci_bind_by_name($stid, ':p1', $p1,18) or die('Error binding string1');
+        oci_bind_by_name($stid, ':p1', $p1,30) or die('Error binding string1');
         oci_bind_by_name($stid, ':p_cursor1', $p_cursor1,-1, OCI_B_CURSOR) or die('Error binding string2');
         oci_bind_by_name($stid, ':p_cursor2', $p_cursor2,-1, OCI_B_CURSOR) or die('Error binding string3');
         oci_bind_by_name($stid, ':p_cursor3', $p_cursor3,-1, OCI_B_CURSOR) or die('Error binding string4');
@@ -102,7 +102,7 @@
         $p_cursor3 = oci_new_cursor($this->pblmig_db->conn_id);
 
         //Send parameters variable  value  lenght
-        oci_bind_by_name($stid, ':p1', $p1,18) or die('Error binding string1');
+        oci_bind_by_name($stid, ':p1', $p1,30) or die('Error binding string1');
         oci_bind_by_name($stid, ':p_cursor1', $p_cursor1,-1, OCI_B_CURSOR) or die('Error binding string2');
         oci_bind_by_name($stid, ':p_cursor2', $p_cursor2,-1, OCI_B_CURSOR) or die('Error binding string3');
         oci_bind_by_name($stid, ':p_cursor3', $p_cursor3,-1, OCI_B_CURSOR) or die('Error binding string4');
@@ -143,7 +143,7 @@
         $p_cursor3 = oci_new_cursor($this->pblmig_db->conn_id);
 
         //Send parameters variable  value  lenght
-        oci_bind_by_name($stid, ':p1', $p1,18) or die('Error binding string1');
+        oci_bind_by_name($stid, ':p1', $p1,30) or die('Error binding string1');
         oci_bind_by_name($stid, ':p_cursor1', $p_cursor1,-1, OCI_B_CURSOR) or die('Error binding string2');
         oci_bind_by_name($stid, ':p_cursor2', $p_cursor2,-1, OCI_B_CURSOR) or die('Error binding string3');
         oci_bind_by_name($stid, ':p_cursor3', $p_cursor3,-1, OCI_B_CURSOR) or die('Error binding string4');
@@ -297,5 +297,51 @@
 
         return $results;
   } 
+  //batal restitusi
+  function save_data_nontaglis2($save) {        
+  $results = '';
+  $this->pblmig_db = $this->load->database('pblmig', true);
+
+  if (!$this->pblmig_db) {
+    $m = oci_error();
+    trigger_error(htmlentities($m['message']), E_USER_ERROR);
+  }
+
+  $noagenda = $save['noagenda'];           
+  $user = $save['user'];  
+  $unit = $save['unit']; 
+  $alasan = $save['keterangan']; 
+  $tiket = $save['tiket'];
+  $permintaan = $save['permintaan'];           
+  $tglpermintaan = $save['tglpermintaan'];  
+  $perihal = $save['perihal'];  
+  $noba = $save['noba'];
+  $msg_out = '';
+
+  $stid = oci_parse($this->pblmig_db->conn_id, 'BEGIN OPHARAPP.PKG_BATAL_RESTITUSI.BATAL_RESTITUSI( :IN_NOAGENDA, :IN_PETUGASCATAT, :P_UNITUP, :IN_ALASAN, :NOMOR_TIKET, :IN_TERIMA_DARI, :IN_TGL_TERIMA, :IN_PERIHAL, :IN_NO_BA, :OUT_MESSAGE); END;');
+
+        //Send parameters variable  value  lenght
+  oci_bind_by_name($stid, ':IN_NOAGENDA', $noagenda) or die('Error binding string1');
+  oci_bind_by_name($stid, ':IN_PETUGASCATAT', $user) or die('Error binding string2');
+  oci_bind_by_name($stid, ':P_UNITUP', $unit) or die('Error binding string3');
+  oci_bind_by_name($stid, ':IN_ALASAN', $keterangan) or die('Error binding string4');
+  oci_bind_by_name($stid, ':NOMOR_TIKET', $tiket) or die('Error binding string5');
+  oci_bind_by_name($stid, ':IN_TERIMA_DARI', $permintaan) or die('Error binding string6');
+  oci_bind_by_name($stid, ':IN_TGL_TERIMA', $tglpermintaan) or die('Error binding string7');
+  oci_bind_by_name($stid, ':IN_PERIHAL', $perihal) or die('Error binding string8');
+  oci_bind_by_name($stid, ':IN_NO_BA', $noba) or die('Error binding string9');
+  oci_bind_by_name($stid, ':OUT_MESSAGE', $msg_out,100, SQLT_CHR) or die('Error binding string10');
+
+  if(oci_execute($stid)){
+    $results = $msg_out;
+  }else{
+    $e = oci_error($stid);
+    $results =  $e['message'];
+  } 
+  oci_free_statement($stid);
+  oci_close($this->pblmig_db->conn_id);
+
+  return $results;
+} 
   /*end ==>*/    
 }

@@ -500,3 +500,10 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+/* START FTP Configurartion */
+
+$config['ftp_config']['hostname'] = '10.14.160.142';
+$config['ftp_config']['username'] = 'anonymous';
+$config['ftp_config']['password'] = '';
+$config['ftp_config']['debug'] = TRUE;

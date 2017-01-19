@@ -13,6 +13,8 @@
 <body class="easyui-layout">
 	
 	<!-- form Pelaksanaan Pembongkaran -->     
+            <div region="center" border="false" border="false">
+        <div class="easyui-tabs" fit="true" id="tt">   
             <div title="Batal Ekslap" style="padding:10px;">
                 <div class="easyui-panel" title="Pembatalan Ekslap" style="width:98%;padding: 5px 13px 5px 5px">	
 						<form action="" method="post" id="form1">	
@@ -22,6 +24,9 @@
 										<td width="15%" style="padding:0 0 0 5px"><b>ID Pelanggan:</b></td>
 										<td width="15%"> 
 											<input class="easyui-textbox" type="text" name="inIdPel2" id="inIdPel2" data-options="required:true,prompt:'Masukan ID Pel...',validType:'Length[12]'" style="width:100%;height:26px;"></input>
+										</td>
+										<td width="8%">
+											<input type="hidden" name="inUnitup" id="inUnitup" data-options="required:false" style="width:100%;height:26px;" value="<?php echo $param; ?>"></input>
 										</td>
 										<td width="8%">
 											<input type="hidden" name="inUser" id="inUser" data-options="required:false" style="width:100%;height:26px;" value="<?php echo $this->session->userdata('id_user');?>"></input>
@@ -35,15 +40,15 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="10%" style="padding:0 0 0 5px"><b>Masukkan No 603:</b></td>
+										<td width="10%" style="padding:0 0 0 5px"><b>Masukkan NO_603:</b></td>
 										<td width="15%"> 
-											<input class="easyui-textbox" type="text" name="inNotul" id="inNotul" data-options="required:true,prompt:'Masukan No 603...'," style="width:100%;height:26px;"></input>	
+											<input class="easyui-textbox" type="text" name="inNotul" id="inNotul" data-options="required:true,prompt:'Masukan NO_603...'," style="width:100%;height:26px;"></input>	
 										</td>
 										<td>
-											<a class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="float:lefts;width:100px;height:26px;" id="bload">Load Data</a>
+											<a href="" class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="float:lefts;width:100%;height:26px;" id="bload" >Load Data</a>
 										</td>	
 										<td>
-											<a class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="float:lefts;width:100px;height:26px;" id="breload" onclick="window.location.reload()" disabled>Reset</a>
+											<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="float:lefts;width:90%;height:26px;" id="breload" onclick="window.location.reload()" disabled>Reset</a>
 										</td>							
 									</tr>
 								</table>
@@ -58,7 +63,8 @@
 														pagination:false,
 														pageSize:10">
 												<thead>
-													<tr>	                    												
+													<tr>	   
+													    <th field="UNITUP" width="10%" align="center">UNITUP</th>
 														<th field="TGL_TUL603" width="10%" align="center">TGL_TUL603</th>
 														<th field="NO_TUL603" width="10%" align="center">NO_TUL603</th>		
 														<th field="IDPELANGGAN" width="10%" align="center">IDPELANGGAN</th>
@@ -66,7 +72,8 @@
 														<th field="ALAMAT" width="25%" align="center">ALAMAT</th>
 														<th field="THBLREK_AWAL" width="10%" align="center">THBLREK_AWAL</th>	
 														<th field="THBLREK_AKHIR" width="10%" align="center">THBLREK_AKHIR</th>
-														<th field="LEMBAR_603" width="5%" align="center">LEMBAR_603</th>																
+														<th field="LEMBAR_603" width="5%" align="center">LEMBAR_603</th>
+
 													</tr>
 												</thead>
 									 		</table>	
@@ -119,10 +126,10 @@
 											<input class="easyui-textbox" type="text" name="inNoBA" id="inNoBA" data-options="required:false,readonly:true,prompt:'Masukan No BA...',validType:'maxLength[15]'" style="width:80%;height:26px;"></input>	
 										</td>
 										<td width="15%" style="padding:0 0 0 10px"> 
-											<b>Unit UP:</b>
+										<b> Unitup :</b>
 										</td>
 										<td width="30%" style="padding:0 0 0 0">
-											<input class="easyui-textbox" type="text" name="inUnitUP" id="inUnitUP" data-options="required:false,prompt:'Masukan Unit UP...'" style="width:80%;height:26px;"></input>	
+										<input class="easyui-textbox" type="text" name="inGetUnitup" id="inGetUnitup" data-options="required:inGetUnitup,readonly:true,prompt:'Automatic fill Data Unitup',validType:'maxLength[15]'" style="width:80%;height:26px;"></input>	
 										</td>
 										<td width="15%" style="padding:0 0 0 0">
 										</td>
@@ -132,9 +139,14 @@
 								</table>
 							</form>
 	            </div>
-            </div>    	
+            </div>    								
+        </div>
+    </div>
 	
 	<!-- script menampilkan datagrid -->
+
+
+
 	<script>
 		
 		$.extend($.fn.validatebox.defaults.rules, {
@@ -238,7 +250,7 @@
 				$.ajax({
 					type: "post",
 					url: "<?php echo site_url('home/getekslap') ?>",
-					cache: false,				
+					cache: false,			
 					data:$('#form1').serialize(),
 					success: function(response){
 							var obj = JSON.parse(response);
@@ -246,11 +258,16 @@
 								var hasil = obj.dataekslap;
 								$.messager.alert('Informasi',hasil,'info');
 							} else {
+								$('#inGetUnitup').textbox('setValue', obj.dataekslap[0].UNITUP);
+
 
 
 								var rows = [];
-								for (var i = 0; i < obj.dataekslap.length; i++) {
+								for (var i = 0; i < obj.dataekslap.length; i++) 
+
+								{ 
 									var TGL_TUL603 = obj.dataekslap[i].TGL_TUL603;
+									var UNITUP = obj.dataekslap[i].UNITUP;
 									var NO_TUL603 = obj.dataekslap[i].NO_TUL603;
 									var IDPELANGGAN = obj.dataekslap[i].IDPELANGGAN;
 									var NAMA = obj.dataekslap[i].NAMA;
@@ -262,6 +279,7 @@
 									rows.push({
 										TGL_TUL603:TGL_TUL603,
 										NO_TUL603:NO_TUL603,
+										UNITUP:UNITUP,
 										IDPELANGGAN:IDPELANGGAN,
 										NAMA:NAMA,
 										ALAMAT:ALAMAT,
@@ -269,7 +287,9 @@
 										THBLREK_AKHIR:THBLREK_AKHIR,
 										LEMBAR_603:LEMBAR_603				
 									});
+
 								};
+								
 
 								$('#dg').datagrid({data:rows}).datagrid('clientPaging');
 
@@ -299,10 +319,22 @@
         
 		function simpan2(){
 	    	var notiket = $('#inNoTiket').val();
+	    	var permintaan = $('#inPermintaan').val();
+	    	var tglpermintaan = $('#inTglPermintaan').val();
+	    	var perihal = $('#inPerihal').val();
+	    	var noba = $('#inNoBA').val();
 	    
 	    	if (notiket=='') {
-	    		$.messager.alert('Informasi','Harap Isi No Tiket','info');
-	    	} else {
+	    	$.messager.alert('Informasi','Harap Isi No Tiket','info');
+	    	} if(permintaan==''){
+    		$.messager.alert('Informasi','Harap Isi Permintaan Dari Mana','info');
+    	    } else if(tglpermintaan==''){
+    		$.messager.alert('Informasi','Harap Isi Tanggal Permintaan','info');
+    	    } else if(perihal==''){
+    		$.messager.alert('Informasi','Harap Isi Perihal','info');
+    	    } else if(noba==''){
+    		$.messager.alert('Informasi','Harap Isi Noba','info');
+    	    } else {
 	    		$.ajax({
 					type: "post",
 					url: "<?php echo site_url('home/savebatal') ?>",
@@ -317,6 +349,10 @@
 				});
 	    	};
 	    }
+
+
+
 	</script>	
 </body>
 </html>
+
