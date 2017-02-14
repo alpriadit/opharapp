@@ -24,7 +24,7 @@ class Home extends CI_Controller {
 	public function index()
 	{	
 		$roleid = $this->session->userdata('leveluser');
-		if ($roleid=='PUSAT') {
+		if ($roleid=='PUSAT' || $roleid=='UP') {
 			$roleid = '5';
 		}				
 		$data['ListMenu'] = $this->mdata1->get_menu_pkg($roleid);
@@ -76,21 +76,22 @@ class Home extends CI_Controller {
 	
 	public function save() {
 			$save['noagenda'] = $this->input->post('inNoAgenda');           
-	        $save['user'] = $this->input->post('inUser');  
-	        $save['unit'] = $this->input->post('inUnitUp');  
-	        $save['tiket'] = $this->input->post('inNoTiket');
-	        $save['permintaan'] = $this->input->post('inPermintaan');           
-	        $save['tglpermintaan'] = $this->input->post('inTglPermintaan');  
-	        $save['perihal'] = $this->input->post('inPerihal');  
-	        $save['noba'] = $this->input->post('inNoBA');
-			$res= $this->mdata1->save_data_nontaglis($save);
-			if ($res) {
-				$msg['hasil'] = $res ;
-				echo json_encode ($msg);
-			} else {
-				$msg['hasil'] = "SUKSES" ;
-				echo json_encode ($msg);
-			}
+            $save['user'] = $this->input->post('inUser');  
+            $save['unit'] = $this->input->post('inUnitUp');
+            // $save['keterangan'] = $this->input->post('inKeterangan');  
+            $save['tiket'] = $this->input->post('inNoTiket');
+            $save['permintaan'] = $this->input->post('inPermintaan');           
+            $save['tglpermintaan'] = $this->input->post('inTglPermintaan');  
+            $save['perihal'] = $this->input->post('inPerihal');  
+            $save['noba'] = $this->input->post('inNoBA');
+            $res= $this->mdata1->save_data_nontaglis($save);
+            if ($res) {
+                $msg['hasil'] = $res;
+                echo json_encode ($msg);
+            } else {
+                $msg['hasil'] = "SUKSES" ;
+                echo json_encode ($msg);
+            }
 	}       
 
 	public function savebatal() { 

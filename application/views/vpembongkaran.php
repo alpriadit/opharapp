@@ -45,10 +45,10 @@
 											<input class="easyui-textbox" type="text" name="inNotul" id="inNotul" data-options="required:true,prompt:'Masukan NO_603...'," style="width:100%;height:26px;"></input>	
 										</td>
 										<td>
-											<a href="" class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="float:lefts;width:100%;height:26px;" id="bload" >Load Data</a>
+											<a href="" class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="float:lefts;width:120px;height:26px;" id="bload" >Load Data</a>
 										</td>	
 										<td>
-											<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="float:lefts;width:90%;height:26px;" id="breload" onclick="window.location.reload()" disabled>Reset</a>
+											<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-reload'" style="float:lefts;width:100%;height:26px;" id="breload" onclick="window.location.reload()" disabled>Reset</a>
 										</td>							
 									</tr>
 								</table>
